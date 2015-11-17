@@ -14,6 +14,6 @@ public class ContentRepo {
     }
 
     private Content newContent() {
-        return new Content("This is a content", "", 200);
+        return new Content("This is a content", "http://ecx.images-amazon.com/images/I/31FbyDYB8cL.jpg", 200);
     }
 }
