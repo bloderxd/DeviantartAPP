@@ -1,36 +1,48 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+import java.util.List;
 
+import br.com.bloder.helloworld_bloder_verisoft.repo.ContentRepo;
+import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 
-    private Button btnHello;
-    private EditText edtHello;
+import static android.widget.AdapterView.*;
+
+public class MainActivity extends ActionBarActivity{
+
+    private ListView photoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        photoList = (ListView) findViewById(R.id.lst);
+        List<Content> ContList = ContentRepo.fetchContent();
+        ContentAdapter ContAdapter = new ContentAdapter(ContList,getApplicationContext());
+        photoList.setAdapter(ContAdapter);
 
-        btnHello = (Button) findViewById(R.id.btnHello);
-        edtHello = (EditText) findViewById(R.id.edtHello);
-
-        btnHello.setOnClickListener(this);
-
+        photoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplication(), DataActivity.class);
+                Content content = (Content) photoList.getAdapter().getItem(position);
+                intent.putExtra("Nome", content.title);
+                intent.putExtra("Views", String.valueOf(content.views));
+                intent.putExtra("Image", content.photoUrl);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void onClick(View v)
-    {
-        edtHello.setText("Hello World --- by bloder");
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,4 +65,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
