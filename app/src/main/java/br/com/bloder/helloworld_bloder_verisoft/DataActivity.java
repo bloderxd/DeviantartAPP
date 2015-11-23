@@ -10,11 +10,14 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.EBean;
 
 /**
  * Created by denis on 18/11/15.
  */
 
+
+@EActivity
 public class DataActivity extends ActionBarActivity {
 
     @Override
