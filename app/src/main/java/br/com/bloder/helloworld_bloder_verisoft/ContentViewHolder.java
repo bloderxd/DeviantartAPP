@@ -43,6 +43,4 @@ public class ContentViewHolder extends LinearLayout {
         Picasso.with(getContext()).load(content.photoUrl).into(imgURL);
     }
 
-
-
 }

@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
@@ -19,6 +20,8 @@ import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity{
 
+    @Bean
+    ContentAdapter contentAdapter;
 
     @ViewById(R.id.lst)
     ListView photoList;
@@ -39,9 +42,7 @@ public class MainActivity extends ActionBarActivity{
     }
 
     public void insertData(){
-        List<Content> ContList = ContentRepo.fetchContent();
-        ContentAdapter ContAdapter = new ContentAdapter(ContList,getApplicationContext());
-        photoList.setAdapter(ContAdapter);
+        photoList.setAdapter(contentAdapter);
     }
 
 }
