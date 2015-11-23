@@ -31,6 +31,11 @@ public class DataActivity extends ActionBarActivity {
         getBundle();
     }
 
+    @Click(R.id.btn_back)
+    public void finishClick(){
+        finish();
+    }
+
     public void getBundle(){
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
@@ -49,8 +54,4 @@ public class DataActivity extends ActionBarActivity {
         }
     }
 
-    @Click(R.id.btn_back)
-    public void finishClick(){
-        finish();
-    }
 }

@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.androidannotations.annotations.EViewGroup;
+import org.androidannotations.annotations.ViewById;
+
 import java.util.List;
 
 import br.com.bloder.helloworld_bloder_verisoft.repo.ContentRepo;
@@ -19,25 +22,19 @@ import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 /**
  * Created by denis on 18/11/15.
  */
+
+@EViewGroup(R.layout.photolist)
 public class ContentViewHolder extends LinearLayout {
 
-    private TextView txtTitle;
-    private TextView txtCount;
-    private ImageView imgURL;
+    @ViewById(R.id.txtTitle)
+    TextView txtTitle;
+    @ViewById(R.id.txtCount)
+    TextView txtCount;
+    @ViewById(R.id.imageView)
+    ImageView imgURL;
 
     public ContentViewHolder(Context context) {
         super(context);
-        init();
-    }
-
-    public ContentViewHolder(Context context, AttributeSet attr) {
-        super(context, attr);
-        init();
-    }
-
-    public ContentViewHolder(Context context, AttributeSet attr, int defStyle) {
-        super(context, attr, defStyle);
-        init();
     }
 
     public void setContent(Content content) {
@@ -46,11 +43,6 @@ public class ContentViewHolder extends LinearLayout {
         Picasso.with(getContext()).load(content.photoUrl).into(imgURL);
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.photolist, this);
-        txtTitle = (TextView)findViewById(R.id.txtTitle);
-        txtCount = (TextView)findViewById(R.id.txtCount);
-        imgURL = (ImageView)findViewById(R.id.imageView);
-    }
+
 
 }
