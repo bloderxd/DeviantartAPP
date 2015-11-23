@@ -20,19 +20,14 @@ import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 /**
  * Created by denis on 18/11/15.
  */
-@EBean
 public class ContentAdapter extends BaseAdapter {
 
-    ContentRepo contentRepo;
-
     private List<Content> contentList;
+    private Context context;
 
-    @RootContext
-    Context context;
-
-    @AfterInject
-    void initAdapter(){
-        contentList = contentRepo.fetchContent();
+    public ContentAdapter(List<Content> contentList, Context context){
+        this.contentList = contentList;
+        this.context = context;
     }
 
     @Override

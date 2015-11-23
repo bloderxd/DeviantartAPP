@@ -20,9 +20,6 @@ import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity{
 
-    @Bean
-    ContentAdapter contentAdapter;
-
     @ViewById(R.id.lst)
     ListView photoList;
 
@@ -42,7 +39,9 @@ public class MainActivity extends ActionBarActivity{
     }
 
     public void insertData(){
-        photoList.setAdapter(contentAdapter);
+        List<Content> ContList = ContentRepo.fetchContent();
+        ContentAdapter ContAdapter = new ContentAdapter(ContList, this);
+        photoList.setAdapter(ContAdapter);
     }
 
 }
