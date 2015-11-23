@@ -9,21 +9,29 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.ViewById;
 
 /**
  * Created by denis on 18/11/15.
  */
 
 
-@EActivity
+@EActivity(R.layout.datalayout)
 public class DataActivity extends ActionBarActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceSaved) {
-        super.onCreate(savedInstanceSaved);
-        setContentView(R.layout.datalayout);
+    @ViewById(R.id.btn_back)
+    Button btn_back;
+
+    @AfterViews
+    void afterViews(){
+        getBundle();
+    }
+
+    public void getBundle(){
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
 
@@ -39,17 +47,10 @@ public class DataActivity extends ActionBarActivity {
             ImageView imageView = (ImageView) findViewById(R.id.image_view);
             Picasso.with(this).load(bundle.getString("Image")).into(imageView);
         }
-
-        Button btn_back = (Button) findViewById(R.id.btn_back);
-        btn_back.setOnClickListener(finishClick());
     }
 
-    private View.OnClickListener finishClick() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        };
+    @Click(R.id.btn_back)
+    public void finishClick(){
+        finish();
     }
 }

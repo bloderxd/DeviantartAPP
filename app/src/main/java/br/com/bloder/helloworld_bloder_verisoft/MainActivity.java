@@ -27,12 +27,6 @@ public class MainActivity extends ActionBarActivity{
     void afterViews(){
         insertData();
     }
-    
-    public void insertData(){
-        List<Content> ContList = ContentRepo.fetchContent();
-        ContentAdapter ContAdapter = new ContentAdapter(ContList,getApplicationContext());
-        photoList.setAdapter(ContAdapter);
-    }
 
     @ItemClick(R.id.lst)
     public void listClicked(int position){
@@ -42,6 +36,12 @@ public class MainActivity extends ActionBarActivity{
         intent.putExtra("Views", String.valueOf(content.views));
         intent.putExtra("Image", content.photoUrl);
         startActivity(intent);
+    }
+
+    public void insertData(){
+        List<Content> ContList = ContentRepo.fetchContent();
+        ContentAdapter ContAdapter = new ContentAdapter(ContList,getApplicationContext());
+        photoList.setAdapter(ContAdapter);
     }
 
 }
