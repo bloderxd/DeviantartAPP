@@ -9,9 +9,12 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.androidannotations.annotations.EActivity;
+
 /**
  * Created by denis on 18/11/15.
  */
+
 public class DataActivity extends ActionBarActivity {
 
     @Override

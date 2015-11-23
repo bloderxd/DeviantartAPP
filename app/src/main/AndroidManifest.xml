@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.com.bloder.helloworld_bloder_verisoft.DataActivity">
+            android:name=".DataActivity">
         </activity>
 
     </application>

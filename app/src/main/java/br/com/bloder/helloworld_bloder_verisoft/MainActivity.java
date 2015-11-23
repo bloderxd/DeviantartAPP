@@ -9,12 +9,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.androidannotations.annotations.EActivity;
+
 import java.util.List;
 
 import br.com.bloder.helloworld_bloder_verisoft.repo.ContentRepo;
 import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 
 import static android.widget.AdapterView.*;
+
 
 public class MainActivity extends ActionBarActivity{
 
