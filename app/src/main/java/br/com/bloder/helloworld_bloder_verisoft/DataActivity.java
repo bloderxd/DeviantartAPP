@@ -24,7 +24,7 @@ public class DataActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceSaved) {
         super.onCreate(savedInstanceSaved);
         setContentView(R.layout.datalayout);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
 
         if(bundle.containsKey("Nome")){

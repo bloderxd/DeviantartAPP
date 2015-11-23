@@ -1,12 +1,7 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
@@ -20,8 +15,6 @@ import java.util.List;
 import br.com.bloder.helloworld_bloder_verisoft.repo.ContentRepo;
 import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 
-import static android.widget.AdapterView.*;
-
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity{
@@ -32,19 +25,18 @@ public class MainActivity extends ActionBarActivity{
 
     @AfterViews
     void afterViews(){
-        insert_data();
+        insertData();
     }
-
-    @UiThread
-    public void insert_data(){
+    
+    public void insertData(){
         List<Content> ContList = ContentRepo.fetchContent();
         ContentAdapter ContAdapter = new ContentAdapter(ContList,getApplicationContext());
         photoList.setAdapter(ContAdapter);
     }
 
     @ItemClick(R.id.lst)
-    public void list_clicked(int position){
-        Intent intent = new Intent(getApplication(), DataActivity.class);
+    public void listClicked(int position){
+        Intent intent = new Intent(getApplication(), DataActivity_.class);
         Content content = (Content) photoList.getAdapter().getItem(position);
         intent.putExtra("Nome", content.title);
         intent.putExtra("Views", String.valueOf(content.views));
