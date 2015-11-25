@@ -8,4 +8,10 @@ public class Deviation {
     public String title;
     public Author author;
     public Image image;
+
+    public Deviation(String title, Author author, Image image) {
+        this.title = title;
+        this.author = author;
+        this.image = image;
+    }
 }
