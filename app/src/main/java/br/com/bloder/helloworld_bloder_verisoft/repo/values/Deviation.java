@@ -7,11 +7,11 @@ public class Deviation {
 
     public String title;
     public Author author;
-    public Image image;
+    public Image content;
 
-    public Deviation(String title, Author author, Image image) {
+    public Deviation(String title, Author author, Image content) {
         this.title = title;
         this.author = author;
-        this.image = image;
+        this.content = content;
     }
 }

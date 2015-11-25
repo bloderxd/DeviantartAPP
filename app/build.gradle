@@ -28,6 +28,7 @@ android {
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "API_URL", "\"https://www.deviantart.com/api/v1/oauth2\""
     }
     buildTypes {
         release {
