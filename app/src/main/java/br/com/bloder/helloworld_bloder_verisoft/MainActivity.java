@@ -1,20 +1,16 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.List;
-
-import br.com.bloder.helloworld_bloder_verisoft.repo.ContentRepo;
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
+import br.com.bloder.helloworld_bloder_verisoft.Retrofit.DeviantartAPI;
+import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
 
 
 @EActivity(R.layout.activity_main)
@@ -25,10 +21,10 @@ public class MainActivity extends ActionBarActivity{
 
     @AfterViews
     void afterViews(){
-        insertData();
+        fetchPopularDeviations();
     }
 
-    @ItemClick(R.id.lst)
+  /*  @ItemClick(R.id.lst)
     public void listClicked(int position){
         Intent intent = new Intent(getApplication(), DataActivity_.class);
         Content content = (Content) photoList.getAdapter().getItem(position);
@@ -36,12 +32,16 @@ public class MainActivity extends ActionBarActivity{
         intent.putExtra("Views", String.valueOf(content.views));
         intent.putExtra("Image", content.photoUrl);
         startActivity(intent);
+    }*/
+
+    @Background
+    public void fetchPopularDeviations(){
+        showPopularDeviations(DeviantartAPI.getServices().getPopularDeviations());
     }
 
-    public void insertData(){
-        List<Content> ContList = ContentRepo.fetchContent();
-        ContentAdapter ContAdapter = new ContentAdapter(ContList, this);
-        photoList.setAdapter(ContAdapter);
+    @UiThread
+    protected void showPopularDeviations(DeviationList popularDeviations) {
+       photoList.setAdapter(new ContentAdapter(popularDeviations.deviationList, getApplicationContext()));
     }
 
 }

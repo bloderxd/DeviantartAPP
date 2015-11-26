@@ -1,43 +1,36 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
-
-import org.androidannotations.annotations.AfterInject;
-import org.androidannotations.annotations.EBean;
-import org.androidannotations.annotations.RootContext;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
-import br.com.bloder.helloworld_bloder_verisoft.repo.ContentRepo;
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
+import br.com.bloder.helloworld_bloder_verisoft.repo.values.Deviation;
+import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
 
 /**
  * Created by denis on 18/11/15.
  */
 public class ContentAdapter extends BaseAdapter {
 
-    private List<Content> contentList;
+    private List<Deviation> deviationList;
     private Context context;
 
-    public ContentAdapter(List<Content> contentList, Context context){
-        this.contentList = contentList;
+    public ContentAdapter(List<Deviation> contentList, Context context){
+        this.deviationList = contentList;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-       return contentList.size();
+       return deviationList.size();
     }
 
     @Override
-    public Content getItem(int position) {
-        return contentList.get(position);
+    public Deviation getItem(int position) {
+        return deviationList.get(position);
     }
 
     @Override
