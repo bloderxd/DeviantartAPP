@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:weightSum="1"
     android:orientation="vertical">
 
-
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/lbl_Title"
-        android:textColor="#000"
-        android:id="@+id/txtTitle"
-        android:layout_gravity="center|top"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:layout_weight="1.5"
         />
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:src="@mipmap/ic_launcher"
-            android:layout_below="@+id/txtTitle"
-            android:layout_centerHorizontal="true"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="105dp">
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:text="@string/lbl_Title"
+            android:textColor="#000"
+            android:id="@+id/txtTitle"
+            android:textSize="20dp"
+            android:textStyle="italic"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
             android:text="@string/lbl_Count"
             android:textColor="#000"
             android:id="@+id/txtCount"
-            android:layout_gravity="center"
-           />
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:autoText="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            />
+
+
+    </RelativeLayout>
 
 
 </LinearLayout>

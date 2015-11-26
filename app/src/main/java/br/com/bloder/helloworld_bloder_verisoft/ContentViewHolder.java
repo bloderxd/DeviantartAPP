@@ -36,7 +36,7 @@ public class ContentViewHolder extends LinearLayout {
         try {
             txtTitle.setText(deviation.title);
             txtCount.setText(deviation.author.username);
-            Picasso.with(getContext()).load(deviation.content.src).resize(600,600).into(imgURL);
+            Picasso.with(getContext()).load(deviation.content.src).resize(900,900).into(imgURL);
         }
         catch (Exception ex){
 
