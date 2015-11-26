@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="94dp"
-        android:layout_height="94dp"
-        android:id="@+id/imageView"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="0dp"
-        android:padding="7dp"/>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1">
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_Title"
+        android:textColor="#000"
+        android:id="@+id/txtTitle"
+        android:layout_gravity="center|top"
+        />
+        <ImageView
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_Title"
-            android:textColor="#000"
-            android:id="@+id/txtTitle"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="25dp"/>
-
+            android:id="@+id/imageView"
+            android:src="@mipmap/ic_launcher"
+            android:layout_below="@+id/txtTitle"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:layout_gravity="center"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/lbl_Count"
             android:textColor="#000"
             android:id="@+id/txtCount"
-            android:layout_marginLeft="30dp"/>
-    </LinearLayout>
+            android:layout_gravity="center"
+           />
+
+
 </LinearLayout>

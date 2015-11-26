@@ -5,11 +5,12 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by denis on 26/11/15.
  */
-public class Content {
+public class Thumbs {
 
     @SerializedName("src") public String src;
 
-    public Content(String src) {
+
+    public Thumbs(String src) {
         this.src = src;
     }
 }

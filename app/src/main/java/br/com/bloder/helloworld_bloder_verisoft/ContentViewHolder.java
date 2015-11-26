@@ -3,6 +3,7 @@ package br.com.bloder.helloworld_bloder_verisoft;
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -32,9 +33,14 @@ public class ContentViewHolder extends LinearLayout {
     }
 
     public void setContent(Deviation deviation) {
-        txtTitle.setText(deviation.title);
-        txtCount.setText(deviation.author.username);
-        //Picasso.with(getContext()).load(deviation.url).into(imgURL);
+        try {
+            txtTitle.setText(deviation.title);
+            txtCount.setText(deviation.author.username);
+            Picasso.with(getContext()).load(deviation.content.src).resize(600,600).into(imgURL);
+        }
+        catch (Exception ex){
+
+        }
     }
 
 }

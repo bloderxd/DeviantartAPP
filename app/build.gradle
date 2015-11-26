@@ -47,6 +47,7 @@ dependencies {
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
 }
 
 apt {
