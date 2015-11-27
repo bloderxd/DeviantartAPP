@@ -1,58 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:weightSum="1"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="false"
-        android:layout_weight="0.3">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_Title"
-            android:textColor="#000"
-            android:id="@+id/txtTitle"
-            android:textSize="20dp"
-            android:textStyle="italic"
-            android:textAlignment="center" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView"
-            android:src="@mipmap/ic_launcher" />
-
-    </LinearLayout>
+        android:layout_height="200dp"
+        android:id="@+id/imageView"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:background="@color/deviantart_user_data_section">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/user_profile_icon" />
-        <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/user_profile_icon"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF00873D"
+            android:padding="6dp"
+            android:layout_marginTop="3dp"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/lbl_Count"
-            android:textColor="#000"
-            android:id="@+id/txtCount"
-            android:textSize="10dp"
-            android:textStyle="italic"
-            android:autoText="true"
-            android:paddingTop="6dp"
-            android:paddingLeft="5dp"
-            android:layout_weight="1" />
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_Title"
+                android:textColor="#FF88D291"
+                android:id="@+id/txtTitle"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                android:textAlignment="textStart"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_Count"
+                android:textColor="#FF88D291"
+                android:id="@+id/txtCount"
+                android:textSize="10dp"
+                android:textStyle="italic"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 
-</LinearLayout>
+
+</RelativeLayout>

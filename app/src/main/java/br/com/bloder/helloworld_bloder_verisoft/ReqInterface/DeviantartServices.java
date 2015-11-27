@@ -11,7 +11,7 @@ import retrofit.http.Headers;
 public interface DeviantartServices {
 
     @Headers("Accept: application/json")
-    @GET("/browse/popular?access_token=fc69c5aef6ca1a68424bb6c04e04f845747b198e9e9e1762c0")
+    @GET("/browse/popular?access_token=53147da7cc6567d04b713ade6f3ba190268eb1e060791664fa")
     DeviationList getPopularDeviations();
 
 }

@@ -20,7 +20,7 @@ import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
  */
 
 @EViewGroup(R.layout.photolist)
-public class ContentViewHolder extends LinearLayout {
+public class ContentViewHolder extends RelativeLayout {
 
     @ViewById(R.id.txtTitle)
     protected TextView txtTitle;
