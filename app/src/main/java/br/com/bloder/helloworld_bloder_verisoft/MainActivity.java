@@ -11,39 +11,39 @@ import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import br.com.bloder.helloworld_bloder_verisoft.Retrofit.DeviantartAPI;
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
+import br.com.bloder.helloworld_bloder_verisoft.api.DeviantartAPI;
+import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
+import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationListJson;
 
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends ActionBarActivity{
 
     @ViewById(R.id.lst)
-    ListView photoList;
+    protected ListView photoList;
 
     @AfterViews
-    void afterViews(){
+    protected void afterViews(){
         fetchPopularDeviations();
     }
 
     @ItemClick(R.id.lst)
-    public void listClicked(int position){
+    protected void listClicked(int position){
         Intent intent = new Intent(getApplication(), DataActivity_.class);
-        Content content = (Content) photoList.getAdapter().getItem(position);
-        intent.putExtra("Nome", content.src);
-        intent.putExtra("Views", String.valueOf(content.src));
-        intent.putExtra("Image", content.src);
+        DeviationJson content = (DeviationJson) photoList.getAdapter().getItem(position);
+        intent.putExtra("Nome", content.title);
+        intent.putExtra("Views", String.valueOf(content.author.username));
+        intent.putExtra("Image", content.content.src);
         startActivity(intent);
     }
 
     @Background
-    public void fetchPopularDeviations(){
+    protected void fetchPopularDeviations(){
         showPopularDeviations(DeviantartAPI.getServices().getPopularDeviations());
     }
 
     @UiThread
-    protected void showPopularDeviations(DeviationList popularDeviations) {
+    protected void showPopularDeviations(DeviationListJson popularDeviations) {
        photoList.setAdapter(new ContentAdapter(popularDeviations.deviationList, getApplicationContext()));
     }
 

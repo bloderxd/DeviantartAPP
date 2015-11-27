@@ -7,18 +7,17 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.Deviation;
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
+import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
 
 /**
  * Created by denis on 18/11/15.
  */
 public class ContentAdapter extends BaseAdapter {
 
-    private List<Deviation> deviationList;
+    private List<DeviationJson> deviationList;
     private Context context;
 
-    public ContentAdapter(List<Deviation> contentList, Context context){
+    public ContentAdapter(List<DeviationJson> contentList, Context context){
         this.deviationList = contentList;
         this.context = context;
     }
@@ -29,7 +28,7 @@ public class ContentAdapter extends BaseAdapter {
     }
 
     @Override
-    public Deviation getItem(int position) {
+    public DeviationJson getItem(int position) {
         return deviationList.get(position);
     }
 

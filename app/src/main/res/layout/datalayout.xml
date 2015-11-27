@@ -17,7 +17,8 @@
             android:layout_marginTop="40dp"
             android:padding="10dp"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/image_view"/>
+            android:id="@+id/image_view"
+            android:transitionName="profile"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

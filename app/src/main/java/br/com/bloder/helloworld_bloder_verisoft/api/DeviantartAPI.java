@@ -1,10 +1,9 @@
-package br.com.bloder.helloworld_bloder_verisoft.Retrofit;
+package br.com.bloder.helloworld_bloder_verisoft.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import br.com.bloder.helloworld_bloder_verisoft.BuildConfig;
-import br.com.bloder.helloworld_bloder_verisoft.ReqInterface.DeviantartServices;
 import retrofit.RestAdapter;
 import retrofit.converter.GsonConverter;
 

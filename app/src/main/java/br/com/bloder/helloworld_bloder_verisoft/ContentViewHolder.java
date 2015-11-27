@@ -1,9 +1,7 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
 import android.content.Context;
-import android.media.Image;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,8 +10,7 @@ import com.squareup.picasso.Picasso;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.Deviation;
-import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
+import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
 
 /**
  * Created by denis on 18/11/15.
@@ -35,7 +32,7 @@ public class ContentViewHolder extends RelativeLayout {
         super(context);
     }
 
-    public void setContent(Deviation deviation) {
+    public void setContent(DeviationJson deviation) {
         try {
             txtTitle.setText(deviation.title);
             txtCount.setText(deviation.author.username);

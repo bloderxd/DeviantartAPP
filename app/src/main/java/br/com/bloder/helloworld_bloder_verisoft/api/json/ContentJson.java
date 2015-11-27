@@ -1,15 +1,15 @@
-package br.com.bloder.helloworld_bloder_verisoft.repo.values;
+package br.com.bloder.helloworld_bloder_verisoft.api.json;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by denis on 26/11/15.
  */
-public class Content {
+public class ContentJson {
 
     @SerializedName("src") public String src;
 
-    public Content(String src) {
+    public ContentJson(String src) {
         this.src = src;
     }
 }
