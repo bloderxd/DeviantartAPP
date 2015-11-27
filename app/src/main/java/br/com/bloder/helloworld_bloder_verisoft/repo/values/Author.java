@@ -8,8 +8,10 @@ import com.google.gson.annotations.SerializedName;
 public class Author {
 
     @SerializedName("username") public String username;
+    @SerializedName("usericon") public String usericon;
 
-    public Author(String username) {
+    public Author(String username, String usericon) {
         this.username = username;
+        this.usericon = usericon;
     }
 }

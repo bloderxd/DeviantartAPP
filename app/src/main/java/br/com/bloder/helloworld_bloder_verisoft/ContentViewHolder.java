@@ -1,6 +1,7 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
 import android.content.Context;
+import android.media.Image;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,11 +23,13 @@ import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
 public class ContentViewHolder extends LinearLayout {
 
     @ViewById(R.id.txtTitle)
-    TextView txtTitle;
+    protected TextView txtTitle;
     @ViewById(R.id.txtCount)
-    TextView txtCount;
+    protected TextView txtCount;
     @ViewById(R.id.imageView)
-    ImageView imgURL;
+    protected ImageView imgURL;
+    @ViewById(R.id.user_profile_icon)
+    protected ImageView user_profile_icon;
 
     public ContentViewHolder(Context context) {
         super(context);
@@ -37,6 +40,7 @@ public class ContentViewHolder extends LinearLayout {
             txtTitle.setText(deviation.title);
             txtCount.setText(deviation.author.username);
             Picasso.with(getContext()).load(deviation.content.src).resize(900,900).into(imgURL);
+            Picasso.with(getContext()).load(deviation.author.usericon).into(user_profile_icon);
         }
         catch (Exception ex){
 

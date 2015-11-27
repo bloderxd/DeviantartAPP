@@ -1,15 +1,18 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import br.com.bloder.helloworld_bloder_verisoft.Retrofit.DeviantartAPI;
+import br.com.bloder.helloworld_bloder_verisoft.repo.values.Content;
 import br.com.bloder.helloworld_bloder_verisoft.repo.values.DeviationList;
 
 
@@ -24,15 +27,15 @@ public class MainActivity extends ActionBarActivity{
         fetchPopularDeviations();
     }
 
-  /*  @ItemClick(R.id.lst)
+    @ItemClick(R.id.lst)
     public void listClicked(int position){
         Intent intent = new Intent(getApplication(), DataActivity_.class);
         Content content = (Content) photoList.getAdapter().getItem(position);
-        intent.putExtra("Nome", content.title);
-        intent.putExtra("Views", String.valueOf(content.views));
-        intent.putExtra("Image", content.photoUrl);
+        intent.putExtra("Nome", content.src);
+        intent.putExtra("Views", String.valueOf(content.src));
+        intent.putExtra("Image", content.src);
         startActivity(intent);
-    }*/
+    }
 
     @Background
     public void fetchPopularDeviations(){
