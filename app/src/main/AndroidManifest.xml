@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DataActivity_">
+            android:name=".details.PopularDeviation_">
         </activity>
 
     </application>

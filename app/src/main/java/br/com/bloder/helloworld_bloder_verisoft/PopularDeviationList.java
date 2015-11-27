@@ -14,6 +14,7 @@ import org.androidannotations.annotations.ViewById;
 import br.com.bloder.helloworld_bloder_verisoft.api.DeviantartAPI;
 import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
 import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationListJson;
+import br.com.bloder.helloworld_bloder_verisoft.details.PopularDeviation_;
 
 
 @EActivity(R.layout.activity_main)
@@ -29,7 +30,7 @@ public class PopularDeviationList extends ActionBarActivity{
 
     @ItemClick(R.id.lst)
     protected void listClicked(int position){
-        Intent intent = new Intent(getApplication(), DataActivity_.class);
+        Intent intent = new Intent(getApplication(), PopularDeviation_.class);
         DeviationJson content = (DeviationJson) photoList.getAdapter().getItem(position);
         intent.putExtra("Nome", content.title);
         intent.putExtra("Views", String.valueOf(content.author.username));

@@ -1,4 +1,4 @@
-package br.com.bloder.helloworld_bloder_verisoft;
+package br.com.bloder.helloworld_bloder_verisoft.details;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -15,28 +15,30 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.ViewById;
 
+import br.com.bloder.helloworld_bloder_verisoft.R;
+
 /**
  * Created by denis on 18/11/15.
  */
 
 
 @EActivity(R.layout.datalayout)
-public class DataActivity extends ActionBarActivity {
+public class PopularDeviation extends ActionBarActivity {
 
     @ViewById(R.id.btn_back)
-    Button btn_back;
+    protected Button btn_back;
 
     @AfterViews
-    void afterViews(){
+    protected void afterViews(){
         getBundle();
     }
 
     @Click(R.id.btn_back)
-    public void finishClick(){
+    protected void finishClick(){
         finish();
     }
 
-    public void getBundle(){
+    protected void getBundle(){
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Bundle bundle = getIntent().getExtras();
 
