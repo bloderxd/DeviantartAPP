@@ -17,7 +17,7 @@ import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationListJson;
 
 
 @EActivity(R.layout.activity_main)
-public class MainActivity extends ActionBarActivity{
+public class PopularDeviationList extends ActionBarActivity{
 
     @ViewById(R.id.lst)
     protected ListView photoList;
