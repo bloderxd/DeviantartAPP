@@ -16,7 +16,7 @@ import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
  * Created by denis on 18/11/15.
  */
 
-@EViewGroup(R.layout.photolist)
+@EViewGroup(R.layout.populardeviationlist)
 public class ContentViewHolder extends RelativeLayout {
 
     @ViewById(R.id.txtTitle)
