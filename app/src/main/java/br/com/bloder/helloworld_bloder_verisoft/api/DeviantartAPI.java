@@ -25,4 +25,16 @@ public class DeviantartAPI {
 
       return retrofit.create(DeviantartServices.class);
   }
+
+    public static DeviantartServices getAccessTokenServices(){
+        Gson gson = new GsonBuilder().create();
+
+        RestAdapter retrofit = new RestAdapter.Builder()
+                .setEndpoint(BuildConfig.ACCESS_TOKEN_URL)
+                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setConverter(new GsonConverter(gson))
+                .build();
+
+        return retrofit.create(DeviantartServices.class);
+    }
 }

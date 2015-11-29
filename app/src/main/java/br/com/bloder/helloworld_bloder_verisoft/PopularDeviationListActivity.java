@@ -41,7 +41,8 @@ public class PopularDeviationListActivity extends ActionBarActivity{
 
     @Background
     protected void fetchPopularDeviations(){
-        showPopularDeviations(DeviantartAPI.getServices().getPopularDeviations());
+        String AccessToken = DeviantartAPI.getAccessTokenServices().getAccessToken().access_token;
+        showPopularDeviations(DeviantartAPI.getServices().getPopularDeviations(AccessToken));
     }
 
     @UiThread

@@ -37,17 +37,21 @@ public class DeviationDetailsActivity extends ActionBarActivity {
     }
 
     protected void getBundle(){
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Bundle bundle = getIntent().getExtras();
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            Bundle bundle = getIntent().getExtras();
 
-        if(bundle.containsKey("userName")){
-            txtViews.setText(bundle.getString("userName"));
-        }
-        if(bundle.containsKey("userUrlImage")){
-            Picasso.with(this).load(bundle.getString("userUrlImage")).into(userImageShow);
-        }
-        if(bundle.containsKey("DeviationImageURL")){
-            Picasso.with(this).load(bundle.getString("DeviationImageURL")).resize(900,1150).into(imageView);
+            if (bundle.containsKey("userName")) {
+                txtViews.setText(bundle.getString("userName"));
+            }
+            if (bundle.containsKey("userUrlImage")) {
+                Picasso.with(this).load(bundle.getString("userUrlImage")).into(userImageShow);
+            }
+            if (bundle.containsKey("DeviationImageURL")) {
+                Picasso.with(this).load(bundle.getString("DeviationImageURL")).resize(900, 1150).into(imageView);
+            }
+        }catch (Exception ex){
+
         }
     }
 
