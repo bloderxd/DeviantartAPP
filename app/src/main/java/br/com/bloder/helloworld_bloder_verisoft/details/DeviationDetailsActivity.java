@@ -54,17 +54,17 @@ public class DeviationDetailsActivity extends ActionBarActivity {
         getBundle();
     }
 
+    @OptionsItem(android.R.id.home)
+    void selectedHome(){
+        finish();
+    }
+
     protected void getBundle(){
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         txtViews.setText(userName);
         Picasso.with(this).load(userUrlImage).into(userImageShow);
         Picasso.with(this).load(deviationImageUrl).resize(900, 1200).into(imageView);
         setTitle(deviationName);
-    }
-
-    @OptionsItem(android.R.id.home)
-    void selectedHome(){
-        finish();
     }
 
 }
