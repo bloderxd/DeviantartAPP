@@ -2,7 +2,6 @@ package br.com.bloder.helloworld_bloder_verisoft.details;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,7 +11,6 @@ import com.squareup.picasso.Picasso;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.ViewById;
 
 import br.com.bloder.helloworld_bloder_verisoft.R;
@@ -22,8 +20,8 @@ import br.com.bloder.helloworld_bloder_verisoft.R;
  */
 
 
-@EActivity(R.layout.datalayout)
-public class PopularDeviation extends ActionBarActivity {
+@EActivity(R.layout.deviationlayout)
+public class DeviationDetailsActivity extends ActionBarActivity {
 
     @ViewById(R.id.btn_back)
     protected Button btn_back;
@@ -48,11 +46,11 @@ public class PopularDeviation extends ActionBarActivity {
         }
         if(bundle.containsKey("Views")){
             TextView txtViews = (TextView) findViewById(R.id.txt_views);
-            txtViews.setText("Views: "+bundle.getString("Views"));
+            txtViews.setText(bundle.getString("Views"));
         }
         if(bundle.containsKey("Image")){
             ImageView imageView = (ImageView) findViewById(R.id.image_view);
-            Picasso.with(this).load(bundle.getString("Image")).into(imageView);
+            Picasso.with(this).load(bundle.getString("Image")).resize(700,700).into(imageView);
         }
     }
 
