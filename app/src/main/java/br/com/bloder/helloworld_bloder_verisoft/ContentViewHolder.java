@@ -38,8 +38,7 @@ public class ContentViewHolder extends RelativeLayout {
             txtCount.setText(deviation.author.username);
             Picasso.with(getContext()).load(deviation.content.src).resize(900,900).into(imgURL);
             Picasso.with(getContext()).load(deviation.author.usericon).into(user_profile_icon);
-        }
-        catch (Exception ex){
+        }catch (Exception ex){
 
         }
     }

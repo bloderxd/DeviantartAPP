@@ -4,11 +4,9 @@
     android:layout_height="match_parent"
     android:background="@color/deviantart_background">
 
-
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/lst"
-         />
+        android:id="@+id/lst" />
 
 </LinearLayout>

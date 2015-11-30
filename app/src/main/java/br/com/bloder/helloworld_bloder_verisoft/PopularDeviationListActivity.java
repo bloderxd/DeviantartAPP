@@ -1,6 +1,5 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
@@ -14,7 +13,6 @@ import org.androidannotations.annotations.ViewById;
 import br.com.bloder.helloworld_bloder_verisoft.api.DeviantartAPI;
 import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
 import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationListJson;
-import br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity;
 import br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity_;
 
 
@@ -31,17 +29,19 @@ public class PopularDeviationListActivity extends ActionBarActivity{
 
     @ItemClick(R.id.lst)
     protected void listClicked(int position){
-        Intent intent = new Intent(getApplication(), DeviationDetailsActivity_.class);
         DeviationJson content = (DeviationJson) photoList.getAdapter().getItem(position);
-        intent.putExtra("Nome", content.title);
-        intent.putExtra("Views", String.valueOf(content.author.username));
-        intent.putExtra("Image", content.content.src);
-        startActivity(intent);
+        DeviationDetailsActivity_.intent(this)
+                .userName(content.author.username)
+                .userUrlImage(content.author.usericon)
+                .deviationImageUrl(content.content.src)
+                .deviationName(content.title)
+                .start();
     }
 
     @Background
     protected void fetchPopularDeviations(){
-        showPopularDeviations(DeviantartAPI.getServices().getPopularDeviations());
+        String AccessToken = DeviantartAPI.getAccessTokenServices().getAccessToken().access_token;
+        showPopularDeviations(DeviantartAPI.getServices().getPopularDeviations(AccessToken));
     }
 
     @UiThread

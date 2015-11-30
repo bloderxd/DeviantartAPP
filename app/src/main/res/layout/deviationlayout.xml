@@ -1,48 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-     tools:context="br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity">
 
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/image_view"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/deviantart_user_data_section"
+        android:weightSum="1">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:src="@mipmap/ic_launcher"
-            android:id="@+id/image_view"
-            android:transitionName="profile"/>
-
-        <TextView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:textColor="#000"
-            android:id="@+id/txt_name"
-            android:layout_gravity="center"
-            android:textSize="20dp"/>
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/user_profile_icon_show"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF00873D"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Views"
-            android:textColor="#000"
+            android:textColor="#FF88D291"
             android:id="@+id/txt_views"
-            android:layout_gravity="center"/>
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_back"
-            android:text="Voltar"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:foreground="#e7fbea"
+            android:textSize="12dp"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
