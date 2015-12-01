@@ -12,8 +12,4 @@ public class ContentJson {
     public ContentJson(String src) {
         this.src = src;
     }
-
-    public String srcToDeviation(){
-        return src;
-    }
 }

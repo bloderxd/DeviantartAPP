@@ -20,10 +20,12 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @ViewById protected RecyclerView deviationList;
 
+    private StaggeredGridLayoutManager layoutManager;
+
     @AfterViews
     protected void afterViews() {
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         deviationList.setHasFixedSize(true);
+        layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         deviationList.setLayoutManager(layoutManager);
         fetchPopularDeviations();

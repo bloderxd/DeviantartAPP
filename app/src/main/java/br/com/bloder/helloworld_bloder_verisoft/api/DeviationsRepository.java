@@ -5,9 +5,6 @@ import java.util.List;
 import br.com.bloder.helloworld_bloder_verisoft.BuildConfig;
 import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
-/**
- * Created by denis on 01/12/15.
- */
 public class DeviationsRepository {
 
     public static List<Deviation> fetchPopularDeviations() {

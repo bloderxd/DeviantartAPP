@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:transitionName="profile"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="profile"
+            android:src="@mipmap/ic_launcher"
+            android:adjustViewBounds="true"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/image"
+        android:layout_alignBottom="@+id/image_layout"
         android:layout_alignParentStart="true"
         android:background="@color/deviantart_user_data_section">
+
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/author_icon"
@@ -29,7 +31,8 @@
             app:civ_border_width="2dp"
             app:civ_border_color="@color/text_color"
             android:padding="6dp"
-            android:layout_marginTop="3dp"/>
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="5dp"/>
 
         <LinearLayout
             android:orientation="vertical"
@@ -62,4 +65,4 @@
 
 
 
-</RelativeLayout>
+</LinearLayout>

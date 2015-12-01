@@ -19,8 +19,12 @@ public class DeviationListJson {
     public List<Deviation> toDeviationList() {
         List<Deviation> deviations = new ArrayList<>();
 
-        for(DeviationJson deviationJson : deviationList) {
-            deviations.add(deviationJson.toDeviation());
+        for (DeviationJson deviationJson : deviationList) {
+            try {
+                deviations.add(deviationJson.toDeviation());
+            }catch (Exception ex){
+
+            }
         }
 
         return deviations;
