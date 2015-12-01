@@ -12,8 +12,13 @@ public class InsertDeviation {
 
     public static List<Deviation> InsertDeviation(DeviationListJson deviationListJson){
         List<Deviation> deviationList = new ArrayList<>();
-        for(int i = 0; i<deviationListJson.deviationList.size(); i++){
-            deviationList.add(new Deviation(deviationListJson.deviationList.get(i).title,deviationListJson.deviationList.get(i).content.src,deviationListJson.deviationList.get(i).author.username,deviationListJson.deviationList.get(i).author.usericon));
+        try {
+            for (int i = 0; i < deviationListJson.deviationList.size(); i++) {
+                deviationList.add(new Deviation(deviationListJson.deviationList.get(i).title, deviationListJson.deviationList.get(i).content.src, deviationListJson.deviationList.get(i).author.username, deviationListJson.deviationList.get(i).author.usericon));
+            }
+        }
+        catch (Exception ex){
+
         }
         return deviationList;
     }
