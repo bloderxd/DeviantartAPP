@@ -11,6 +11,7 @@ import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
 import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
+import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
 /**
  * Created by denis on 18/11/15.
@@ -32,12 +33,12 @@ public class ContentViewHolder extends RelativeLayout {
         super(context);
     }
 
-    public void setContent(DeviationJson deviation) {
+    public void setContent(Deviation deviation) {
         try {
             txtTitle.setText(deviation.title);
-            txtCount.setText(deviation.author.username);
-            Picasso.with(getContext()).load(deviation.content.src).resize(900,900).into(imgURL);
-            Picasso.with(getContext()).load(deviation.author.usericon).into(user_profile_icon);
+            txtCount.setText(deviation.authorName);
+            Picasso.with(getContext()).load(deviation.imageUrl).resize(900,900).into(imgURL);
+            Picasso.with(getContext()).load(deviation.authorImageUrl).into(user_profile_icon);
         }catch (Exception ex){
 
         }
