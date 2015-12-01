@@ -5,8 +5,8 @@
     android:background="@color/deviantart_background">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/deviation_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lst"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

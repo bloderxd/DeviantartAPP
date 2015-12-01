@@ -1,7 +1,6 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
@@ -19,12 +18,14 @@ import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 @EActivity(R.layout.activity_main)
 public class PopularDeviationListActivity extends ActionBarActivity {
 
-    @ViewById(R.id.lst) protected RecyclerView photoList;
+    @ViewById protected RecyclerView deviationList;
 
     @AfterViews
     protected void afterViews() {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        photoList.setLayoutManager(layoutManager);
+        deviationList.setHasFixedSize(true);
+        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+        deviationList.setLayoutManager(layoutManager);
         fetchPopularDeviations();
     }
 
@@ -35,6 +36,6 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @UiThread
     protected void showPopularDeviations(List<Deviation> popularDeviations) {
-        photoList.setAdapter(new DeviationListAdapter(popularDeviations, getApplicationContext()));
+        deviationList.setAdapter(new DeviationListAdapter(popularDeviations, getApplicationContext()));
     }
 }
