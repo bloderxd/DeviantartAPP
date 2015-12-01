@@ -21,4 +21,8 @@ public class DeviationJson {
         this.author = author;
         this.content = content;
     }
+
+    public String titleToDeviation(){
+        return this.title;
+    }
 }

@@ -14,4 +14,12 @@ public class AuthorJson {
         this.username = username;
         this.usericon = usericon;
     }
+
+    public String usernameToDeviation(){
+        return username;
+    }
+
+    public String usericonToDeviation(){
+        return usericon;
+    }
 }

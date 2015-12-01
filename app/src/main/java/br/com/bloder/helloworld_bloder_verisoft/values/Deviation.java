@@ -1,5 +1,7 @@
 package br.com.bloder.helloworld_bloder_verisoft.values;
 
+import br.com.bloder.helloworld_bloder_verisoft.api.json.DeviationJson;
+
 /**
  * Created by denis on 27/11/15.
  */
