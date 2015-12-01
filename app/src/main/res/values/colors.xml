@@ -2,4 +2,5 @@
 <resources>
     <color name="deviantart_background">#c6d8bf</color>
     <color name="deviantart_user_data_section">#80000000</color>
+    <color name="text_color">#FF88D291</color>
 </resources>

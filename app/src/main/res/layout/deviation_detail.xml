@@ -7,10 +7,10 @@
     tools:context="br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity">
 
     <ImageView
+        android:id="@+id/image_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@mipmap/ic_launcher"
-        android:id="@+id/image_view"
         android:transitionName="profile"/>
 
     <LinearLayout
@@ -21,23 +21,23 @@
         android:weightSum="1">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/author_icon_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/user_profile_icon_show"
             android:padding="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:civ_border_width="2dp"
-            app:civ_border_color="#FF00873D"/>
+            app:civ_border_color="@color/text_color"/>
 
         <TextView
+            android:id="@+id/author_name_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Views"
-            android:textColor="#FF88D291"
-            android:id="@+id/txt_views"
+            android:textColor="@color/text_color"
             android:layout_gravity="center"
             android:foreground="#e7fbea"
             android:textSize="12dp"

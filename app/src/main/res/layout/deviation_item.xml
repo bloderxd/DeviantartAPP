@@ -6,9 +6,9 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/imageView"
+        android:layout_height="wrap_content"
         android:transitionName="profile"
         android:src="@mipmap/ic_launcher"
         android:scaleType="centerCrop"/>
@@ -17,18 +17,17 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout"
-        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignBottom="@+id/image"
         android:layout_alignParentStart="true"
         android:background="@color/deviantart_user_data_section">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/author_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
-            android:id="@+id/user_profile_icon"
             app:civ_border_width="2dp"
-            app:civ_border_color="#FF00873D"
+            app:civ_border_color="@color/text_color"
             android:padding="6dp"
             android:layout_marginTop="3dp"/>
 
@@ -39,21 +38,21 @@
             android:padding="5dp">
 
             <TextView
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lbl_Title"
-                android:textColor="#FF88D291"
-                android:id="@+id/txtTitle"
+                android:textColor="@color/text_color"
                 android:textSize="15dp"
                 android:textStyle="italic"
                 android:textAlignment="textStart"/>
 
             <TextView
+                android:id="@+id/author_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lbl_Count"
-                android:textColor="#FF88D291"
-                android:id="@+id/txtCount"
+                android:textColor="@color/text_color"
                 android:textSize="10dp"
                 android:textStyle="italic"/>
 

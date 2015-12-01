@@ -7,9 +7,9 @@ import com.google.gson.annotations.SerializedName;
  */
 public class AccessTokenJson {
 
-    @SerializedName("access_token") public final String access_token;
+    @SerializedName("access_token") public final String accessToken;
 
-    public AccessTokenJson(String access_token) {
-        this.access_token = access_token;
+    public AccessTokenJson(String accessToken) {
+        this.accessToken = accessToken;
     }
 }
