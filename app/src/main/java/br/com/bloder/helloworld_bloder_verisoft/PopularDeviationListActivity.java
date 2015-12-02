@@ -3,6 +3,8 @@ package br.com.bloder.helloworld_bloder_verisoft;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
+import android.widget.AbsListView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -20,15 +22,19 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @ViewById protected RecyclerView deviationList;
 
-    private StaggeredGridLayoutManager layoutManager;
-
     @AfterViews
     protected void afterViews() {
         deviationList.setHasFixedSize(true);
-        layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         deviationList.setLayoutManager(layoutManager);
         fetchPopularDeviations();
+        deviationList.setOnScrollListener(new DeviationEndlessScroll(layoutManager) {
+            @Override
+            public void onLoadMore(int currentPage) {
+                Log.v("EE","KOIJOI");
+            }
+        });
     }
 
     @Background

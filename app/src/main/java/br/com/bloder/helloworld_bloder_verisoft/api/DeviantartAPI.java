@@ -13,7 +13,6 @@ import retrofit.converter.GsonConverter;
 public class DeviantartAPI {
 
   public static DeviantartServices getServices(String endpoint) {
-
       Gson gson = new GsonBuilder()
               .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
               .create();

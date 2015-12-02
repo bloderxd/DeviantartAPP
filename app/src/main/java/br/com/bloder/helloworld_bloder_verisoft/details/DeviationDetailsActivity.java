@@ -18,7 +18,6 @@ import br.com.bloder.helloworld_bloder_verisoft.R;
  * Created by denis on 18/11/15.
  */
 
-
 @EActivity(R.layout.deviation_detail)
 public class DeviationDetailsActivity extends ActionBarActivity {
 

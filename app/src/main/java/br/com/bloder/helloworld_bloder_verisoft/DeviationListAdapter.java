@@ -3,11 +3,8 @@ package br.com.bloder.helloworld_bloder_verisoft;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -26,6 +23,7 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
         this.deviationList = deviations;
         this.context = context;
     }
+
 
     @Override
     public InternalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

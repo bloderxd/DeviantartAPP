@@ -3,16 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="3dp">
 
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:transitionName="profile"
-            android:src="@mipmap/ic_launcher"
-            android:adjustViewBounds="true"/>
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:transitionName="profile"
+        android:src="@mipmap/ic_launcher"
+        android:adjustViewBounds="true"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -21,7 +21,6 @@
         android:layout_alignBottom="@+id/image_layout"
         android:layout_alignParentStart="true"
         android:background="@color/deviantart_user_data_section">
-
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/author_icon"
@@ -62,7 +61,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 </LinearLayout>
