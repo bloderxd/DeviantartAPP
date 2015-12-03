@@ -7,14 +7,15 @@ import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
 public class DeviationsRepository {
 
-    public static List<Deviation> fetchPopularDeviations() {
+    private final static int limit = 10;
+
+    public static List<Deviation> fetchPopularDeviations(int page) {
         return DeviantartAPI.getServices(BuildConfig.API_URL)
-                .getPopularDeviations(getAccessToken())
+                .getPopularDeviations(getAccessToken(), limit, page * limit)
                 .toDeviationList();
     }
 
     private static String getAccessToken() {
         return DeviantartAPI.getServices(BuildConfig.ACCESS_TOKEN_URL).getAccessToken().accessToken;
     }
-
 }

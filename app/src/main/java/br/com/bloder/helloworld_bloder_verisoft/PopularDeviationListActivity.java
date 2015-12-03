@@ -33,14 +33,14 @@ public class PopularDeviationListActivity extends ActionBarActivity {
         deviationList.setOnScrollListener(new DeviationEndlessScroll(layoutManager, getApplicationContext()) {
             @Override
             public void onLoadMore(int currentPage) {
-                fetchNextPage();
+                fetchNextPage(currentPage);
             }
         });
     }
 
     @Background
-    protected void fetchNextPage() {
-        showNextDeviations(DeviationsRepository.fetchPopularDeviations());
+    protected void fetchNextPage(int page) {
+        showNextDeviations(DeviationsRepository.fetchPopularDeviations(page));
     }
 
     @UiThread
@@ -50,7 +50,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @Background
     protected void fetchPopularDeviations() {
-        showPopularDeviations(DeviationsRepository.fetchPopularDeviations());
+        showPopularDeviations(DeviationsRepository.fetchPopularDeviations(0));
     }
 
     @UiThread

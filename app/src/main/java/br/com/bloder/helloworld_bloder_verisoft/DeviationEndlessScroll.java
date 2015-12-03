@@ -21,7 +21,7 @@ public abstract class DeviationEndlessScroll extends RecyclerView.OnScrollListen
     int pastVisibleItems,visibleItemCount, totalItemCount;
     Context context;
 
-    private int currentPage = 1;
+    private int currentPage = 0;
 
     private StaggeredGridLayoutManager linearLayoutManager;
 
