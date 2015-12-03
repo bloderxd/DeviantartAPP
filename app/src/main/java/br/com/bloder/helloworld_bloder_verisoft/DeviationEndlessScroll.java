@@ -3,12 +3,8 @@ package br.com.bloder.helloworld_bloder_verisoft;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.bloder.helloworld_bloder_verisoft.api.DeviationsRepository;
-import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
+import android.view.View;
+import android.widget.ProgressBar;
 
 /**
  * Created by denis on 02/12/15.
@@ -42,6 +38,7 @@ public abstract class DeviationEndlessScroll extends RecyclerView.OnScrollListen
         if(firstVisibleItem != null && firstVisibleItem.length > 0) {
             pastVisibleItems = firstVisibleItem[0];
         }
+
         if (loading) {
             if (totalItemCount > previousTotal) {
                 loading = false;
@@ -49,6 +46,7 @@ public abstract class DeviationEndlessScroll extends RecyclerView.OnScrollListen
 
             }
         }
+
         if (!loading && (totalItemCount - visibleItemCount) <= (pastVisibleItems + visibleThreshould)) {
             currentPage++;
             loading = true;

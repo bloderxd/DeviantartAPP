@@ -3,6 +3,8 @@ package br.com.bloder.helloworld_bloder_verisoft;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
@@ -20,41 +22,33 @@ import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 public class PopularDeviationListActivity extends ActionBarActivity {
 
     @ViewById protected RecyclerView deviationList;
-
-    private StaggeredGridLayoutManager layoutManager;
+    @ViewById protected RelativeLayout loadingMore;
 
     @AfterViews
     protected void afterViews() {
         deviationList.setHasFixedSize(true);
-        layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         deviationList.setLayoutManager(layoutManager);
-        fetchPopularDeviations();
+        deviationList.setAdapter(new DeviationListAdapter(new ArrayList<Deviation>(), getApplicationContext()));
         deviationList.setOnScrollListener(new DeviationEndlessScroll(layoutManager, getApplicationContext()) {
             @Override
             public void onLoadMore(int currentPage) {
-                fetchNextPage(currentPage);
+                loadingMore.setVisibility(View.VISIBLE);
+                fetchDeviationsPage(currentPage);
             }
         });
+        fetchDeviationsPage(0);
     }
 
     @Background
-    protected void fetchNextPage(int page) {
-        showNextDeviations(DeviationsRepository.fetchPopularDeviations(page));
+    protected void fetchDeviationsPage(int page) {
+        showDeviations(DeviationsRepository.fetchPopularDeviations(page));
     }
 
     @UiThread
-    protected void showNextDeviations(final List<Deviation> nextDeviations){
+    protected void showDeviations(final List<Deviation> nextDeviations){
+        loadingMore.setVisibility(View.GONE);
         ((DeviationListAdapter)deviationList.getAdapter()).addNewDeviations(nextDeviations);
-    }
-
-    @Background
-    protected void fetchPopularDeviations() {
-        showPopularDeviations(DeviationsRepository.fetchPopularDeviations(0));
-    }
-
-    @UiThread
-    protected void showPopularDeviations(List<Deviation> popularDeviations) {
-        deviationList.setAdapter(new DeviationListAdapter(popularDeviations, getApplicationContext()));
     }
 }

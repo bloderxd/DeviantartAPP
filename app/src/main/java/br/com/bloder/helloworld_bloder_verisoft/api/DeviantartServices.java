@@ -17,5 +17,4 @@ public interface DeviantartServices {
 
     @GET("/token?grant_type=client_credentials&client_id=3943&client_secret=296fa3d32129b85561a5fc4bb9045747")
     AccessTokenJson getAccessToken();
-
 }

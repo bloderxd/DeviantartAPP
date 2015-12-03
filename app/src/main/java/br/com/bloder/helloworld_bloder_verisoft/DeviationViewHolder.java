@@ -1,7 +1,6 @@
 package br.com.bloder.helloworld_bloder_verisoft;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
