@@ -47,6 +47,12 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
         });
     }
 
+    public void addNewDeviations(List<Deviation> deviations) {
+        int oldSize = deviationList.size();
+        deviationList.addAll(deviations);
+        this.notifyItemRangeInserted(oldSize, deviationList.size());
+    }
+
     @Override
     public int getItemCount() {
         return deviationList.size();
