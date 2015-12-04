@@ -33,13 +33,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
     protected void afterViews() {
         setupLayoutManager();
         deviationList.setAdapter(new DeviationListAdapter(new ArrayList<Deviation>(), getApplicationContext(), windowMode));
-        deviationList.setOnScrollListener(new DeviationEndlessScroll(layoutManager, getApplicationContext()) {
-            @Override
-            public void onLoadMore(int currentPage) {
-                loadingMore.setVisibility(View.VISIBLE);
-                fetchDeviationsPage(currentPage);
-            }
-        });
+        scrollLoading();
         fetchDeviationsPage(0);
     }
 
@@ -65,6 +59,11 @@ public class PopularDeviationListActivity extends ActionBarActivity {
     void changeModeDeviation() {
         windowMode = windowMode == 0 ? 1 : 0;
         setupLayoutManager();
+        scrollLoading();
+        ((DeviationListAdapter)deviationList.getAdapter()).changeMode(windowMode);
+    }
+
+    private void scrollLoading(){
         deviationList.setOnScrollListener(new DeviationEndlessScroll(layoutManager, getApplicationContext()) {
             @Override
             public void onLoadMore(int currentPage) {
@@ -72,6 +71,5 @@ public class PopularDeviationListActivity extends ActionBarActivity {
                 fetchDeviationsPage(currentPage);
             }
         });
-        ((DeviationListAdapter)deviationList.getAdapter()).changeMode(windowMode);
     }
 }

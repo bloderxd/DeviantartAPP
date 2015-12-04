@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_margin="3dp"
     android:background="@android:color/white"
-    android:layout_margin="3dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,9 +16,11 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/author_icon_one_column"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_color="@color/text_color"
+            app:civ_border_width="2dp" />
 
         <TextView
             android:id="@+id/author_name_one_column"
@@ -25,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="User Name"
             android:textColor="@color/text_color"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 
@@ -34,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,7 +52,7 @@
             android:text="Deviaiton Name"
             android:textAlignment="center"
             android:textColor="@color/text_color"
-            android:textSize="25dp" />
+            android:textSize="15dp" />
 
     </LinearLayout>
 
