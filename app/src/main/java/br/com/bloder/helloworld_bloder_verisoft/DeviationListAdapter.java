@@ -18,12 +18,18 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
 
     private List<Deviation> deviationList;
     private Context context;
+    private int windowMode;
 
-    public DeviationListAdapter(List<Deviation> deviations, Context context){
+    public DeviationListAdapter(List<Deviation> deviations, Context context, int windowMode){
         this.deviationList = deviations;
         this.context = context;
+        this.windowMode = windowMode;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return windowMode;
+    }
 
     @Override
     public InternalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -58,15 +64,24 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
         return deviationList.size();
     }
 
+    public void changeMode(int windowMode) {
+        this.windowMode = windowMode;
+        notifyDataSetChanged();
+    }
+
     public class InternalViewHolder extends RecyclerView.ViewHolder{
 
         public InternalViewHolder() {
-            super(DeviationViewHolder_.build(context));
+            super(windowMode == 0 ? DeviationViewHolder_.build(context) : DeviationOneColumnViewHolder_.build(context));
         }
 
         public void bind(Deviation deviation){
-            ((DeviationViewHolder) this.itemView).bind(deviation);
+            if(windowMode == 0) {
+                ((DeviationViewHolder) this.itemView).bind(deviation);
+            }
+            else if(windowMode == 1){
+                ((DeviationOneColumnViewHolder) this.itemView).bind(deviation);
+            }
         }
     }
-
 }
