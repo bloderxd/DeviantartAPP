@@ -6,60 +6,67 @@
     android:orientation="vertical"
     android:padding="3dp">
 
-    <ImageView
-        android:id="@+id/image"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:transitionName="profile"
-        android:src="@mipmap/ic_launcher"
-        android:adjustViewBounds="true"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/image_layout"
-        android:layout_alignParentStart="true"
-        android:background="@color/deviantart_user_data_section">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/author_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="profile"
             android:src="@mipmap/ic_launcher"
-            app:civ_border_width="2dp"
-            app:civ_border_color="@color/text_color"
-            android:padding="6dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginLeft="5dp"/>
+            android:adjustViewBounds="true"/>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:layout_alignParentStart="true"
+            android:background="@color/deviantart_user_data_section"
+            android:layout_alignParentBottom="true">
 
-            <TextView
-                android:id="@+id/title"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/author_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/text_color"
+                android:padding="6dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="5dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_Title"
-                android:textColor="@color/text_color"
-                android:textSize="15dp"
-                android:textStyle="italic"
-                android:textAlignment="textStart"/>
+                android:padding="5dp">
 
-            <TextView
-                android:id="@+id/author_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_Count"
-                android:textColor="@color/text_color"
-                android:textSize="10dp"
-                android:textStyle="italic"/>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_Title"
+                    android:textColor="@color/text_color"
+                    android:textSize="15dp"
+                    android:textStyle="italic"
+                    android:textAlignment="textStart"/>
+
+                <TextView
+                    android:id="@+id/author_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_Count"
+                    android:textColor="@color/text_color"
+                    android:textSize="10dp"
+                    android:textStyle="italic"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
+
 
 </LinearLayout>
