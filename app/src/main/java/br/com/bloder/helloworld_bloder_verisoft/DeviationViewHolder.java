@@ -12,7 +12,7 @@ import org.androidannotations.annotations.ViewById;
 
 import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
-@EViewGroup(R.layout.deviation_item)
+@EViewGroup(R.layout.deviation_item_two_columns)
 public class DeviationViewHolder extends RelativeLayout {
 
     @ViewById protected TextView title;
