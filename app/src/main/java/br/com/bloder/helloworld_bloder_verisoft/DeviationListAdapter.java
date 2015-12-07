@@ -9,21 +9,25 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity_;
+import br.com.bloder.helloworld_bloder_verisoft.preferences.UiModePrefs_;
 import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
-/**
- * Created by denis on 01/12/15.
- */
 public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdapter.InternalViewHolder> {
 
     private List<Deviation> deviationList;
-    private Context context;
+    private final Context context;
+    private final UiModePrefs_ prefs;
 
-    public DeviationListAdapter(List<Deviation> deviations, Context context){
+    public DeviationListAdapter(List<Deviation> deviations, Context context, UiModePrefs_ prefs){
         this.deviationList = deviations;
         this.context = context;
+        this.prefs = prefs;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return UI_MODE.current(prefs).ordinal();
+    }
 
     @Override
     public InternalViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -61,12 +65,15 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
     public class InternalViewHolder extends RecyclerView.ViewHolder{
 
         public InternalViewHolder() {
-            super(DeviationViewHolder_.build(context));
+            super(UI_MODE.current(prefs) == UI_MODE.SIMPLE ? DeviationViewHolder_.build(context) : DeviationOneColumnViewHolder_.build(context));
         }
 
         public void bind(Deviation deviation){
-            ((DeviationViewHolder) this.itemView).bind(deviation);
+            if(UI_MODE.current(prefs) == UI_MODE.SIMPLE) {
+                ((DeviationViewHolder) this.itemView).bind(deviation);
+            } else {
+                ((DeviationOneColumnViewHolder) this.itemView).bind(deviation);
+            }
         }
     }
-
 }
