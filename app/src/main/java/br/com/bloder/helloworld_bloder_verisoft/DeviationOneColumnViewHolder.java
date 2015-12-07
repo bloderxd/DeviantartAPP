@@ -15,7 +15,7 @@ import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 /**
  * Created by denis on 04/12/15.
  */
-@EViewGroup(R.layout.deviation_item_one_column)
+@EViewGroup(R.layout.deviation_item)
 public class DeviationOneColumnViewHolder extends LinearLayout {
 
     @ViewById protected ImageView imageOneColumn;
