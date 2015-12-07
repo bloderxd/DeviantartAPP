@@ -72,13 +72,13 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
     public class InternalViewHolder extends RecyclerView.ViewHolder{
 
         public InternalViewHolder() {
-            super(windowMode == Prefs.SIMPLE.ordinal() ? DeviationViewHolder_.build(context) : DeviationOneColumnViewHolder_.build(context));
+            super(windowMode == UI_MODE.SIMPLE.ordinal() ? DeviationViewHolder_.build(context) : DeviationOneColumnViewHolder_.build(context));
         }
 
         public void bind(Deviation deviation){
-            if(windowMode == Prefs.SIMPLE.ordinal()) {
+            if(windowMode == UI_MODE.SIMPLE.ordinal()) {
                 ((DeviationViewHolder) this.itemView).bind(deviation);
-            } else if(windowMode == Prefs.COMPLEX.ordinal()){
+            } else if(windowMode == UI_MODE.COMPLEX.ordinal()){
                 ((DeviationOneColumnViewHolder) this.itemView).bind(deviation);
             }
         }

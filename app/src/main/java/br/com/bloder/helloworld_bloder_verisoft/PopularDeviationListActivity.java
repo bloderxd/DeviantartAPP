@@ -26,7 +26,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @ViewById protected RecyclerView deviationList;
     @ViewById protected RelativeLayout loadingMore;
-    private int windowMode = Prefs.SIMPLE.ordinal();
+    private int windowMode = UI_MODE.SIMPLE.ordinal();
     private StaggeredGridLayoutManager layoutManager;
 
     @AfterViews
@@ -57,7 +57,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @OptionsItem(R.id.action_change_mode)
     void changeModeDeviation() {
-        windowMode = windowMode == Prefs.SIMPLE.ordinal() ? Prefs.COMPLEX.ordinal() : Prefs.SIMPLE.ordinal();
+        windowMode = windowMode == UI_MODE.SIMPLE.ordinal() ? UI_MODE.COMPLEX.ordinal() : UI_MODE.SIMPLE.ordinal();
         setupLayoutManager();
         scrollLoading();
         ((DeviationListAdapter)deviationList.getAdapter()).changeMode(windowMode);
