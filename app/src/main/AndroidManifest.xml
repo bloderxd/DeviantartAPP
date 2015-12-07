@@ -21,7 +21,6 @@
         </activity>
         <activity
             android:name=".details.DeviationDetailsActivity_">
-
         </activity>
 
     </application>
