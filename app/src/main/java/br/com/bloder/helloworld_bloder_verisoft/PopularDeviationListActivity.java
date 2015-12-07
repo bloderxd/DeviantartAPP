@@ -26,7 +26,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @ViewById protected RecyclerView deviationList;
     @ViewById protected RelativeLayout loadingMore;
-    private int windowMode = UI_MODE.SIMPLE.ordinal();
+    private UI_MODE windowMode = UI_MODE.SIMPLE;
     private StaggeredGridLayoutManager layoutManager;
 
     @AfterViews
@@ -49,7 +49,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
     }
 
     private void setupLayoutManager() {
-        layoutManager = new StaggeredGridLayoutManager(windowMode == 0 ? 2 : 1, StaggeredGridLayoutManager.VERTICAL);
+        layoutManager = new StaggeredGridLayoutManager(windowMode == windowMode.SIMPLE ? 2 : 1, StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         deviationList.setHasFixedSize(true);
         deviationList.setLayoutManager(layoutManager);
@@ -57,7 +57,7 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @OptionsItem(R.id.action_change_mode)
     void changeModeDeviation() {
-        windowMode = windowMode == UI_MODE.SIMPLE.ordinal() ? UI_MODE.COMPLEX.ordinal() : UI_MODE.SIMPLE.ordinal();
+        windowMode = windowMode == UI_MODE.SIMPLE ? UI_MODE.COMPLEX : UI_MODE.SIMPLE;
         setupLayoutManager();
         scrollLoading();
         ((DeviationListAdapter)deviationList.getAdapter()).changeMode(windowMode);
