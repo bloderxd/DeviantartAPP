@@ -9,26 +9,24 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.bloder.helloworld_bloder_verisoft.details.DeviationDetailsActivity_;
+import br.com.bloder.helloworld_bloder_verisoft.preferences.UiModePrefs_;
 import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
-/**
- * Created by denis on 01/12/15.
- */
 public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdapter.InternalViewHolder> {
 
     private List<Deviation> deviationList;
-    private Context context;
-    private UI_MODE windowMode;
+    private final Context context;
+    private final UiModePrefs_ prefs;
 
-    public DeviationListAdapter(List<Deviation> deviations, Context context, UI_MODE windowMode){
+    public DeviationListAdapter(List<Deviation> deviations, Context context, UiModePrefs_ prefs){
         this.deviationList = deviations;
         this.context = context;
-        this.windowMode = windowMode;
+        this.prefs = prefs;
     }
 
     @Override
     public int getItemViewType(int position) {
-        return windowMode == UI_MODE.SIMPLE ? 0 : 1;
+        return UI_MODE.current(prefs).ordinal();
     }
 
     @Override
@@ -64,21 +62,16 @@ public class DeviationListAdapter extends RecyclerView.Adapter<DeviationListAdap
         return deviationList.size();
     }
 
-    public void changeMode(UI_MODE windowMode) {
-        this.windowMode = windowMode;
-        notifyDataSetChanged();
-    }
-
     public class InternalViewHolder extends RecyclerView.ViewHolder{
 
         public InternalViewHolder() {
-            super(windowMode == UI_MODE.SIMPLE ? DeviationViewHolder_.build(context) : DeviationOneColumnViewHolder_.build(context));
+            super(UI_MODE.current(prefs) == UI_MODE.SIMPLE ? DeviationViewHolder_.build(context) : DeviationOneColumnViewHolder_.build(context));
         }
 
         public void bind(Deviation deviation){
-            if(windowMode == UI_MODE.SIMPLE) {
+            if(UI_MODE.current(prefs) == UI_MODE.SIMPLE) {
                 ((DeviationViewHolder) this.itemView).bind(deviation);
-            } else if(windowMode == UI_MODE.COMPLEX){
+            } else {
                 ((DeviationOneColumnViewHolder) this.itemView).bind(deviation);
             }
         }

@@ -13,11 +13,13 @@ import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.OptionsMenu;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
+import org.androidannotations.annotations.sharedpreferences.Pref;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.com.bloder.helloworld_bloder_verisoft.api.DeviationsRepository;
+import br.com.bloder.helloworld_bloder_verisoft.preferences.UiModePrefs_;
 import br.com.bloder.helloworld_bloder_verisoft.values.Deviation;
 
 @OptionsMenu(R.menu.menu_main)
@@ -26,13 +28,13 @@ public class PopularDeviationListActivity extends ActionBarActivity {
 
     @ViewById protected RecyclerView deviationList;
     @ViewById protected RelativeLayout loadingMore;
-    private UI_MODE windowMode = UI_MODE.SIMPLE;
     private StaggeredGridLayoutManager layoutManager;
+    @Pref protected UiModePrefs_ prefs;
 
     @AfterViews
     protected void afterViews() {
         setupLayoutManager();
-        deviationList.setAdapter(new DeviationListAdapter(new ArrayList<Deviation>(), getApplicationContext(), windowMode));
+        deviationList.setAdapter(new DeviationListAdapter(new ArrayList<Deviation>(), getApplicationContext(), prefs));
         scrollLoading();
         fetchDeviationsPage(0);
     }
@@ -49,18 +51,22 @@ public class PopularDeviationListActivity extends ActionBarActivity {
     }
 
     private void setupLayoutManager() {
-        layoutManager = new StaggeredGridLayoutManager(windowMode == windowMode.SIMPLE ? 2 : 1, StaggeredGridLayoutManager.VERTICAL);
+        layoutManager = new StaggeredGridLayoutManager(columnSize(), StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         deviationList.setHasFixedSize(true);
         deviationList.setLayoutManager(layoutManager);
     }
 
+    private int columnSize() {
+        return UI_MODE.current(prefs) == UI_MODE.SIMPLE ? 2 : 1;
+    }
+
     @OptionsItem(R.id.action_change_mode)
     void changeModeDeviation() {
-        windowMode = windowMode == UI_MODE.SIMPLE ? UI_MODE.COMPLEX : UI_MODE.SIMPLE;
+        UI_MODE.switchMode(prefs);
         setupLayoutManager();
         scrollLoading();
-        ((DeviationListAdapter)deviationList.getAdapter()).changeMode(windowMode);
+        deviationList.getAdapter().notifyDataSetChanged();
     }
 
     private void scrollLoading(){
