@@ -33,8 +33,6 @@ public class DeviationDetailsActivity extends ActionBarActivity {
     @Extra protected String deviationImageUrl;
     @Extra protected String deviationName;
 
-    private ScaleGestureDetector mScaleDetector;
-
     @OptionsItem(android.R.id.home)
     protected void selectedHome(){
         finish();
@@ -48,11 +46,4 @@ public class DeviationDetailsActivity extends ActionBarActivity {
         Picasso.with(this).load(deviationImageUrl).into(imageDetail);
         setTitle(deviationName);
     }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        mScaleDetector.onTouchEvent(event);
-        return true;
-    }
-
 }
